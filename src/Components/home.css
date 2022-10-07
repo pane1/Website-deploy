@@ -1,0 +1,59 @@
+.home-container {
+    height: 92vh;
+    background-color: white;
+
+}
+.content {
+    display: block;
+    width: auto;
+    height: auto;
+    margin: 8vmin;
+    border: #636363;
+    box-shadow: 1px 1px 6px #636363;
+}
+.section-title {
+    display: flex;
+    width: auto;
+    border-bottom: 3px solid black;
+    margin-left: 5vmin;
+    margin-right: 5vmin;
+}
+.titles {
+    display: inline-block;
+    font-size: 5vmin;
+    margin-left: 5vmin;
+    margin-bottom: 1vmin;
+
+}
+.addition-button {
+    display: inline-block;
+    border: 0.4vmin solid white;
+    height: 4vmin;
+    margin-top: 6.5vmin;
+
+}
+.addition-button:hover {
+    border: 0.4vmin solid black;
+}
+.addition-icon {
+    width: 4vmin;
+    height: 4vmin;
+    margin: 0;
+}
+.title-space {
+    width: 141vmin;
+}
+.stocks-content-section {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+.stock-text{
+    font-size: 2vmin;
+    margin: 2vmin;
+    text-align: center;
+}
+.content-space {
+    width: 15vmin;
+    height: 1vmin;
+}

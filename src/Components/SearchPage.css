@@ -1,0 +1,50 @@
+.search-container {
+    height: 92vh;
+    background-color: white;
+
+}
+.content {
+    display: block;
+    width: auto;
+    height: auto;
+    margin: 8vmin;
+    border: #636363;
+}
+.search-area {
+    display: flex;
+    width: auto;
+
+    margin-left: 5vmin;
+    margin-right: 5vmin;
+    margin-top: 5vmin;
+}
+.search-bar {
+    display: inline-block;
+    width: 100vmin;
+
+    padding: 5px 15px;
+    font-size: 3vmin;
+    border-radius: 6px;
+    border: 2px solid #c7cccb;
+}
+.search-bar:focus {
+    outline-offset: -0.25vmin;
+    outline: 3px solid black;
+}
+.search-button {
+    display: inline-block;
+}
+.search-space {
+    width: 40vmin;
+}
+.search-icon {
+    width: 6vmin;
+    height: 6vmin;
+    color:#c7cccb;
+    padding: 5px 8px;
+    margin-right: 5vmin;
+
+}
+.search-icon:hover {
+    color: black;
+}

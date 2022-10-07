@@ -1,0 +1,110 @@
+/*New CSS code*/
+.login-container {
+  height: 92vh;
+  background-color: #353535;
+  display:flex;
+}
+.login{
+  margin: 5%;
+  height: auto;
+}
+.login-form-label {
+  text-align: justify;
+  display: block;
+  font-size: 2.5vmin;
+}
+.login-input-form {
+  margin-top: 2%;
+  margin-bottom: 2%;
+  height: 4vmin;
+  width: 38vmin;
+  display: block;
+  border: 2px solid #c7cccb;
+  font-size: 2vmin;
+  padding: 2px 10px;
+  border-radius: 3px;
+}
+.login-input-form:focus {
+  outline-offset: -0.2vmin;
+  outline: 2px solid black;
+}
+.login-section {
+  height: auto;
+  width: 45vmin;
+  background-color: white;
+  border-radius: 16px;
+  margin: auto;
+}
+.login-text {
+  margin-top: 4vmin;
+  margin-bottom: 4vmin;
+  text-align: center;
+  font-size: 2vmin;
+}
+.home-photo {
+  margin-top: 2%;
+  height: 50vmin;
+  width: 100vmin;
+  border-radius: 10px;
+  border: 5px solid white;
+}
+.login-button {
+  height: 6vmin;
+  width: 40.7vmin;
+  text-align: center;
+  margin-top: 10%;
+  font-size: 2.5vmin;
+  border: 0;
+  color: #353535;
+  background-color: #ff5353;
+  cursor: pointer;
+}
+.login-button:active {
+  background-color: white;
+  border: 1px solid black;
+}
+.forget-option {
+  display: block;
+  margin: 2%;
+  margin-right: 1%;
+  text-align: end;
+  color: #888889;
+  cursor: pointer;
+  font-size: 1.7vmin;
+}
+.forget-option:hover {
+  color: black;
+}
+.sign-up-option {
+  margin-top: 10%;
+  margin-left: 2%;
+  text-align: center;
+  color: #888889;
+  cursor: pointer;
+}
+.sign-up-option:hover {
+  color: black;
+}
+.success-login-messageBox {
+  background-color: #8edd7e;
+  border-radius: 30px;
+  margin: 2vmin;
+  margin-top: 10vmin;
+  margin-bottom: 10vmin;
+  font-size: 2.5vmin;
+}
+.success-login-message{
+  padding: 2vmin;
+  text-align: center;
+}
+.error-messageBox {
+  background-color: #fc8787;
+  border-radius: 10px;
+  margin-top: 1vmin;
+  margin-bottom: 2vmin;
+}
+.errorMessage {
+  padding: 15px;
+  color: white;
+  text-align: center;
+}
