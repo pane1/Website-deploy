@@ -1,0 +1,36 @@
+/*New CSS code*/
+.Nav-bar {
+  height: 8vmin;
+  background-color: #ff7171;
+  width: 100%;
+}
+.nav-bar-content {
+  display: block;
+  align-content: center;
+}
+.nav-logo {
+  display: inline;
+  height: 6vmin;
+  width: 6vmin;
+  vertical-align: top;
+  margin: 1vmin;
+}
+.menu-tab {
+  display: inline-block;
+  width: auto;
+  margin-left: 2vmin;
+  margin-top: 1vmin;
+  color: #353535;
+  font-size: 3vmin;
+
+}
+.menu-tab:hover {
+  color: white;
+  border-bottom: 3px solid white;
+}
+.menu-text {
+  margin: 0;
+  margin-left: 2vmin;
+  margin-right: 2vmin;
+  padding: 1vmin 2vmin;
+}

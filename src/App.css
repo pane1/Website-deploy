@@ -1,5 +1,8 @@
+/*Default CSS code*/
 .App {
   text-align: center;
+  background-color: #353535;
+  height: 1500px
 }
 
 .App-logo {

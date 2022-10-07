@@ -1,0 +1,46 @@
+.stock-container{
+    width: 40vmin;
+    margin-left: 16vmin;
+    margin-top: 5vmin;
+    margin-bottom: 5vmin;  
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid #dddddd;
+    height: auto;
+}
+.stock-container:hover {
+    box-shadow: 0px 0px 6px #dddddd;
+}
+.stock-name-section {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom: 1px solid #dddddd;
+    height: auto;
+}
+.stock-name {
+    font-size: 3vmin;
+    text-align: center;
+    padding: 2vmin;
+    margin: 0;
+}
+.stock-content-section {
+    height: 0;
+    border-top: 0;
+    border-bottom: 0;
+    margin: 0;
+
+}
+.stock-details-section {
+    border-top: 1px solid #dddddd;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    height: 8vmin;
+    
+}
+.stock-details {
+    font-size: 3vmin;
+    text-align: center;
+    padding: 2vmin;
+    margin: 0;
+    
+}
