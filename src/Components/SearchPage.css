@@ -48,3 +48,14 @@
 .search-icon:hover {
     color: black;
 }
+.search-result-container {
+    border: 1px solid black;
+    height: 50vmin;
+    width: 100vmin;
+    margin-left: 50vmin;
+    margin-top: 10vmin;
+}
+.search-result-info {
+    border: 1px solid blue;
+
+}

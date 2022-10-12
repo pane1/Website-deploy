@@ -16,7 +16,11 @@ function SearchPage(props) {
                 </div>
 
             </div>
-
+            <div className="search-result-container">
+                <div className="serach-result-info">
+                    <p>Search result</p>
+                </div>
+            </div>
 
         </div>
     );
