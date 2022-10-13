@@ -1,7 +1,6 @@
 import React, { useState } from "react"
-import { BrowserRouter as Router, Route, Link } from "react-router-dom"
+import { BrowserRouter as Link } from "react-router-dom"
 import "./Login.css"
-import background from '../images/home-page-background.jpg';
 import axios from "axios";
 
 
@@ -79,9 +78,12 @@ function Login() {
             <button onClick={formSubmit} className="login-button">Login</button>
             <p className="login-text">
               Don't have an account?
+              {/* 
               <Link className="sign-up-option" to="/sign-up">
                 Sign-up
               </Link>
+              
+            */}
             </p>
 
           </div>
