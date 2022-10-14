@@ -1,47 +1,48 @@
 .home-container {
-    height: 92vh;
-    background-color: white;
+    height: 100%;
+    background-color:#353535;
+    border: 1px solid #353535;
 
 }
-.content {
+
+.home-content {
     display: block;
     width: auto;
-    height: auto;
-    margin: 8vmin;
-    border: #636363;
-    box-shadow: 1px 1px 6px #636363;
+    background-color: white;
+    margin: 5%;
+    margin-bottom: 42vh;
 }
 .section-title {
     display: flex;
     width: auto;
     border-bottom: 3px solid black;
-    margin-left: 5vmin;
-    margin-right: 5vmin;
+    margin-left: 2vw;
+    margin-right: 2vw;
 }
 .titles {
     display: inline-block;
     font-size: 5vmin;
-    margin-left: 5vmin;
-    margin-bottom: 1vmin;
+    margin-left: 2vw;
+    margin-bottom: 1vh;
 
 }
 .addition-button {
     display: inline-block;
-    border: 0.4vmin solid white;
-    height: 4vmin;
-    margin-top: 6.5vmin;
-
+    border: 0.4vh solid white;
+    height: 4vh;
+    margin-top: 6.5vh;
+    margin-right: 2vw;
 }
 .addition-button:hover {
-    border: 0.4vmin solid black;
+    border: 0.4vh solid black;
 }
 .addition-icon {
-    width: 4vmin;
-    height: 4vmin;
+    width: 4vh;
+    height: 4vh;
     margin: 0;
 }
 .title-space {
-    width: 141vmin;
+    width: 141vw;
 }
 .stocks-content-section {
     display: flex;
@@ -52,8 +53,4 @@
     font-size: 2vmin;
     margin: 2vmin;
     text-align: center;
-}
-.content-space {
-    width: 15vmin;
-    height: 1vmin;
 }

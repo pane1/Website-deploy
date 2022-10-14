@@ -1,6 +1,5 @@
-/*New CSS code*/
 .signup-container {
-    height: auto;
+    height: 92vh;
     background-color:#353535;
     display:flex;
 }

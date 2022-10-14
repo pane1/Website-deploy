@@ -1,61 +1,78 @@
 .search-container {
     height: 92vh;
-    background-color: white;
-
+    background-color: #353535;
+    border: 1px solid #353535;
 }
-.content {
+.search-content{
     display: block;
     width: auto;
-    height: auto;
-    margin: 8vmin;
-    border: #636363;
+    height: 100vh;
+    border: 1px solid white;
+    margin: 6vmin;
+
+    flex-wrap: wrap;
 }
 .search-area {
-    display: flex;
-    width: auto;
 
-    margin-left: 5vmin;
-    margin-right: 5vmin;
-    margin-top: 5vmin;
+    width: auto;
 }
 .search-bar {
-    display: inline-block;
-    width: 100vmin;
-
+    display: inline;
+    width: 50vw;
+    height: 5.5vmin;
     padding: 5px 15px;
     font-size: 3vmin;
     border-radius: 6px;
-    border: 2px solid #c7cccb;
+    margin:0;
+    margin-left: 20%;
+    
 }
 .search-bar:focus {
     outline-offset: -0.25vmin;
-    outline: 3px solid black;
+    outline: 3px solid #ff5353;
 }
 .search-button {
-    display: inline-block;
-}
-.search-space {
-    width: 40vmin;
+    display: inline-flex;
+    height: 7vmin;
+    width: 7vmin;
+    vertical-align: bottom;
 }
 .search-icon {
-    width: 6vmin;
-    height: 6vmin;
+    height: 7vmin;
+    width: 7vmin;
     color:#c7cccb;
-    padding: 5px 8px;
-    margin-right: 5vmin;
-
+    padding: 0.2vmin 0.5vmin;
 }
 .search-icon:hover {
-    color: black;
+    color: white;
+}
+.search-result-area {
+    width: auto;
+    height: 50vh;
+    margin: 10%;
+    margin-top: 5vh;
+    background-color: white;
 }
 .search-result-container {
-    border: 1px solid black;
-    height: 50vmin;
-    width: 100vmin;
-    margin-left: 50vmin;
-    margin-top: 10vmin;
-}
-.search-result-info {
-    border: 1px solid blue;
+    
+    box-shadow: 0px 0px 4px #c7cccb;
+    height: auto;
 
+ 
+}
+/**/
+.search-results {
+    border: 2px solid black;
+    border-left: 0;
+    border-right: 0;
+}
+.search-stock-info {
+    
+    border: 1px solid black;
+    font-size: 4vmin;
+
+
+}
+.stock-addition-button {
+    
 }

@@ -1,8 +1,9 @@
 /*New CSS code*/
 .Nav-bar {
-  height: 8vmin;
+  height: 8vh;
   background-color: #ff7171;
   width: 100%;
+
 }
 .nav-bar-content {
   display: block;
@@ -10,8 +11,8 @@
 }
 .nav-logo {
   display: inline;
-  height: 6vmin;
-  width: 6vmin;
+  height: 6vh;
+  width: 6vh;
   vertical-align: top;
   margin: 1vmin;
 }
@@ -26,11 +27,11 @@
 }
 .menu-tab:hover {
   color: white;
-  border-bottom: 3px solid white;
+  border-bottom: 4px solid white;
 }
 .menu-text {
   margin: 0;
-  margin-left: 2vmin;
-  margin-right: 2vmin;
-  padding: 1vmin 2vmin;
+  margin-left: 2vw;
+  margin-right: 2vw;
+  padding: 1vh 0.5vw;
 }

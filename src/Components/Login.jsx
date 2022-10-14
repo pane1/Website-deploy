@@ -1,11 +1,14 @@
 import React, { useState } from "react"
-import { BrowserRouter as Link } from "react-router-dom"
+import { Link } from "react-router-dom"
 import "./Login.css"
 import axios from "axios";
+import { useEffect } from "react";
 
 
 function Login() {
-
+  useEffect(() => {
+    document.title = "Login"
+  });
 
   const [input, setInput] = useState({
     user: '',
@@ -79,11 +82,11 @@ function Login() {
             <p className="login-text">
               Don't have an account?
               {/* 
-              <Link className="sign-up-option" to="/sign-up">
-                Sign-up
-              </Link>
               
             */}
+              <Link className="sign-up-option" exact to="/sign-up">
+                Sign-up
+              </Link>
             </p>
 
           </div>

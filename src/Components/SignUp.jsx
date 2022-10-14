@@ -5,7 +5,9 @@ import "./signup.css";
 import axios from "axios";
 
 function SignUp() {
-
+    useEffect(() => {
+        document.title = "Sign-up"
+    });
     const [input, setInput] = useState({
         first: '',
         last: '',

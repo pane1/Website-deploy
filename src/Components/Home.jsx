@@ -7,6 +7,7 @@ import "./home.css";
 import Stock from "./Stock"
 
 function Home() {
+
     const [users, setUser] = useState([{
         Email: '',
     }]);
@@ -16,7 +17,7 @@ function Home() {
     }]);
 
     useEffect(() => {
-
+        document.title = "Home page"
         axios.get("http://localhost:3001/login")
             .then(res =>
                 setUser(res.data)
@@ -37,7 +38,9 @@ function Home() {
 
     return (
         <div className="home-container">
-            <div className="content">
+
+            <div className="home-content">
+
                 <div className="section-title">
                     <p className="titles">
                         FAVORITES
@@ -45,10 +48,10 @@ function Home() {
                     <div className="title-space">
 
                     </div>
+                    <div className="addition-button" onClick={addNewStock}>
+                        <GrAdd className="addition-icon"></GrAdd>
+                    </div>
                     <Link exact to="/stock-addition">
-                        <div className="addition-button" onClick={addNewStock}>
-                            <GrAdd className="addition-icon"></GrAdd>
-                        </div>
                     </Link>
                 </div>
 
