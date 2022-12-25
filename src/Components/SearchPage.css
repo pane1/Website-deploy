@@ -1,19 +1,17 @@
 .search-container {
-    height: 92vh;
+    height: auto;
     background-color: #353535;
     border: 1px solid #353535;
 }
 .search-content{
     display: block;
     width: auto;
-    height: 100vh;
-    border: 1px solid white;
+    height: auto;
+    min-height: 80vh;
     margin: 6vmin;
-
     flex-wrap: wrap;
 }
 .search-area {
-
     width: auto;
 }
 .search-bar {
@@ -48,17 +46,17 @@
 }
 .search-result-area {
     width: auto;
-    height: 50vh;
+    height: auto;
+    min-height: 65vh;
     margin: 10%;
     margin-top: 5vh;
+    margin-bottom: 5vh;
     background-color: white;
+    border-radius: 5px;
 }
 .search-result-container {
-    
     box-shadow: 0px 0px 4px #c7cccb;
     height: auto;
-
- 
 }
 /**/
 .search-results {
@@ -67,12 +65,79 @@
     border-right: 0;
 }
 .search-stock-info {
-    
     border: 1px solid black;
     font-size: 4vmin;
-
-
 }
-.stock-addition-button {
+
+.stock-graphContent {
+    width: 100%;
+}
+
+.stock-titleBarArea {
+    border: 1px solid black;
+    width: 80%;
+    margin-left: 10%;
+}
+.stock-titleBarText {
+    display: inline-block;
+    margin-left: 10%;
+    margin-top: 3%;
+    width: 50%;
+    border: 1px solid red;
+}
+.stock-titleBarIcon {
+    display: inline-block;
+    border: 1px solid blue;
+    width: 5%;
+}
+.stock-favoriteIcon {
+    width: 3vmin;
+    height: 3vmin;
+}
+.stock-graph {
+    border: 1px solid #828282;
+    margin-top: 5vmin;
+    margin-bottom: 5vh;
+    margin-left: 25vmin;
+    border-radius: 4px;
     
+}
+
+.stock-details {
+    /*
+    border: 1px solid black;
+    */
+    
+    height: 40vh;
+    margin-bottom: 5vh;
+}
+.stock-table {
+    border: 1px solid red;
+}
+.stock-tab {
+    border-bottom: 5px solid #c7cccb;
+    width: 40%;
+    display: inline-block;
+}
+.table-label {
+    width: 60%;
+    display: inline-block;
+    text-align: start;
+    font-weight: 400;
+    font-size: 2.5vmin;
+}
+.table-value {
+    width: 39%;
+    display: inline-block;
+    text-align: end;
+    font-weight: 200;
+    font-size: 2.5vmin;
+}
+.table-textLeft{
+    margin: 2vmin;
+    margin-left: 2vmin;
+}
+.table-textRight {
+    margin: 2vmin;
+    margin-right: 2vmin;
 }

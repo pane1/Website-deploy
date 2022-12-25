@@ -29,7 +29,19 @@ function Home() {
                 return res.json()
             }
         }).then(jsonRes => setUser(jsonRes))
-        console.log(users)*/
+        console.log(users)
+        <div>
+                    
+                    {users.map(user =>
+                        <div>
+                            <p>
+                                {user.Email}
+                            </p>
+                        </div>
+                    )}
+
+                </div>
+        */
     });
 
     const addNewStock = () => {
@@ -64,16 +76,7 @@ function Home() {
 
                     )}
                 </div>
-                <div>
-                    {users.map(user =>
-                        <div>
-                            <p>
-                                {user.Email}
-                            </p>
-                        </div>
-                    )}
 
-                </div>
             </div>
 
         </div>

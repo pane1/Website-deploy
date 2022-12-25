@@ -63,6 +63,10 @@ router.route("/login").post(async (req,res) => {
         res.send("Internal server error.")
     }
 })
+
+router.route("/stock-addition").get(async(req,res) => {
+
+})
 router.route("/")
 
 module.exports = router;
