@@ -74,25 +74,29 @@
 }
 
 .stock-titleBarArea {
-    border: 1px solid black;
+    display: flex;
+    border-bottom: 3px solid #828282;
     width: 80%;
     margin-left: 10%;
 }
 .stock-titleBarText {
-    display: inline-block;
-    margin-left: 10%;
+    margin: 0;
+    margin-left: 5%;
     margin-top: 3%;
-    width: 50%;
-    border: 1px solid red;
+    width: 107vh;
+}
+.stock-nameText {
+    font-size: 5vmin;
+    margin: 0;
 }
 .stock-titleBarIcon {
-    display: inline-block;
-    border: 1px solid blue;
-    width: 5%;
+    width: 5vmin;
+    height: 5vmin;
+    margin-top: 4.1%;
 }
 .stock-favoriteIcon {
-    width: 3vmin;
-    height: 3vmin;
+    width: 4.5vmin;
+    height: 4.5vmin;
 }
 .stock-graph {
     border: 1px solid #828282;

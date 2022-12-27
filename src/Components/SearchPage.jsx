@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { FiSearch } from "react-icons/fi";
-import { BsStarFill } from "react-icons/bs";
+import { BsStarFill, BsStar } from "react-icons/bs";
 import axios from "axios";
 import Plot from "react-plotly.js";
 
@@ -17,6 +17,7 @@ function SearchPage(props) {
     });
     const [stockData, setStockData] = useState({
         symbol: "",
+        name: "",
         price: [],
         volume: 0,
         avgVolume: 0,
@@ -88,8 +89,6 @@ function SearchPage(props) {
                 if (typeof response.data.data[0] !== "undefined") {
                     console.log("Stock pricing", response.data);
 
-
-
                     for (var i = 0; i < response.data.data.length; i++) {
                         prices.push(response.data.data[i].Close);
                         var t = new Date(response.data.data[i].Date);
@@ -97,7 +96,7 @@ function SearchPage(props) {
                         let day = t.getDate();
                         dates.push(`${monthConv[month]}/${day}`)
                     }
-                    setStockData(() => ({ price: prices, symbol: input.stock }));
+                    //setStockData(() => ({ price: prices, symbol: input.stock }));
                     setPeriod(dates);
 
                     //console.log(dates)
@@ -110,11 +109,13 @@ function SearchPage(props) {
             }).catch(function (error) {
                 console.error(error);
             })
+
             await axios.request(optionsInfo).then(function (response) {
                 if (response.data.data != null) {
                     console.log("Stock info", response.data.data);
                     setStatus(true);
 
+                    var longName = response.data.data.longName;
                     var vol = response.data.data.volume;
                     var avgVol = response.data.data.averageVolume;
                     var divVal = response.data.data.lastDividendValue;
@@ -123,7 +124,7 @@ function SearchPage(props) {
                     let day = t.getDate();
                     let year = t.getFullYear();
 
-                    console.log(t, month, day, typeof year)
+                    //console.log(t, month, day, typeof year)
                     var divDate = (`${monthConv[month]}/${day}/${year}`);
                     var divYield = response.data.data.dividendYield;
                     var high = response.data.data.fiftyTwoWeekHigh;
@@ -132,6 +133,7 @@ function SearchPage(props) {
 
                     setStockData({
                         price: prices,
+                        name: longName,
                         symbol: input.stock,
                         volume: vol,
                         avgVolume: avgVol,
@@ -159,6 +161,7 @@ function SearchPage(props) {
         catch (error) {
             console.log("Stock cannot be found.")
         }
+        //<BsStarFill className="stock-favoriteIcon"></BsStarFill>
     };
 
     return (
@@ -175,10 +178,11 @@ function SearchPage(props) {
                         <div class="stock-graphContent">
                             <div className="stock-titleBarArea">
                                 <div className="stock-titleBarText">
-                                    <p>TITLE insert here</p>
+                                    <p className="stock-nameText">{stockData.symbol} - {stockData.name}</p>
                                 </div>
                                 <div className="stock-titleBarIcon">
-                                    <BsStarFill className="stock-favoriteIcon"></BsStarFill>
+                                    <BsStar className="stock-favoriteIcon"></BsStar>
+
                                 </div>
                             </div>
                             <Plot className="stock-graph"
@@ -192,14 +196,6 @@ function SearchPage(props) {
                                 layout={{
                                     width: 960,
                                     height: 480,
-                                    title: {
-                                        text: stockData.symbol + " stock",
-                                        font: {
-                                            family: 'Calibri (Body)',
-                                            size: 25,
-                                            color: 'black'
-                                        }
-                                    },
 
                                     yaxis: {
                                         title: "Cost (USD $)",
