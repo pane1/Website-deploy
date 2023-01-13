@@ -2,27 +2,24 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { GrAdd } from "react-icons/gr";
 import { Link } from "react-router-dom"
+import { useAuth } from "../contexts/AuthContext"
 
 import "./home.css";
 import Stock from "./Stock"
 
 function Home() {
+    const { currentUser } = useAuth();
 
     const [users, setUser] = useState([{
         Email: '',
     }]);
 
-    const [stockElement, setStock] = useState([{
-        StockName: 'RY'
-    }]);
+    const [stockElement, setStock] = useState([]);
 
     useEffect(() => {
         document.title = "Home page"
-        axios.get("http://localhost:3001/login")
-            .then(res =>
-                setUser(res.data)
-            )
-        console.log(users)
+        retrieve();
+        //console.log(users)
         /*
         fetch("/login").then(res => {
             if (res.ok) {
@@ -41,8 +38,26 @@ function Home() {
                     )}
 
                 </div>
+                <div>
+                            <Stock name={stockElements.Symbol} price={"$24.00"} />
+                        </div>
+
+                    {stockElement.map(stockElements =>
+
+                        <p>{stockElements}</p>
+                    )}
         */
-    });
+    }, []);
+
+    async function retrieve() {
+        let newUser = {
+            Uid: currentUser.uid
+        }
+        await axios.post("http://localhost:3001/", newUser)
+            .then(res => {
+                setStock(res.data)
+            })
+    }
 
     const addNewStock = () => {
         setStock(stockElement.concat(<Stock name={"RY"} price={"$24.00"} />))
@@ -63,18 +78,18 @@ function Home() {
                     <div className="addition-button" onClick={addNewStock}>
                         <GrAdd className="addition-icon"></GrAdd>
                     </div>
-                    <Link exact to="/stock-addition">
+                    <Link to="/stock-addition">
                     </Link>
                 </div>
 
                 <div className="stocks-content-section">
 
-                    {stockElement.map(stockElements =>
+                    {stockElement.map(data => (
                         <div>
-                            <Stock name={stockElements.StockName} price={"$24.00"} />
+                            <Stock name={data} price={"$24.00"} />
                         </div>
 
-                    )}
+                    ))}
                 </div>
 
             </div>

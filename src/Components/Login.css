@@ -14,8 +14,8 @@
   font-size: 2.5vmin;
 }
 .login-input-form {
-  margin-top: 2%;
-  margin-bottom: 2%;
+  margin-top: 5%;
+  margin-bottom: 5%;
   height: 4vmin;
   width: 38vmin;
   display: block;
@@ -35,11 +35,15 @@
   border-radius: 16px;
   margin: auto;
 }
-.login-text {
-  margin-top: 4vmin;
-  margin-bottom: 4vmin;
+.login-form-title {
   text-align: center;
-  font-size: 2vmin;
+  font-size: 4vmin;
+}
+.login-text {
+  margin-top: 3vmin;
+  margin-bottom: 3vmin;
+  text-align: center;
+  
 }
 .home-photo {
   margin-top: 2%;
@@ -81,6 +85,7 @@
   text-align: center;
   color: #888889;
   cursor: pointer;
+
 }
 .sign-up-option:hover {
   color: black;
@@ -101,7 +106,7 @@
   background-color: #fc8787;
   border-radius: 10px;
   margin-top: 1vmin;
-  margin-bottom: 2vmin;
+  margin-bottom: 1vmin;
 }
 .errorMessage {
   padding: 15px;

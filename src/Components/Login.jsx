@@ -1,32 +1,39 @@
-import React, { useState } from "react"
-import { Link } from "react-router-dom"
+import React, { useState, useRef } from "react"
+import { Link, useNavigate } from "react-router-dom"
 import "./Login.css"
 import axios from "axios";
 import { useEffect } from "react";
-
+import { useAuth } from "../contexts/AuthContext"
 
 function Login() {
+  //Hooks
   useEffect(() => {
     document.title = "Login"
   });
 
+  const { login } = useAuth()
+  const navigate = useNavigate()
+
+  //States 
   const [input, setInput] = useState({
     user: '',
     pass: ''
   })
+  const emailRef = useRef()
+  const passRef = useRef()
 
-  const [message, setMessage] = useState("");
-  const [messageBox, setMessageBoxVis] = useState(false);
   const [successBox, setSucessBoxVis] = useState(false);
+  const [lockStatus, setLock] = useState();
+  const [errorMsg, setErrorMsg] = useState("");
 
   function formInput(e) {
     const { name, value } = e.target
     setInput(() => ({ ...input, [name]: value }))
   }
 
-  function formSubmit(e) {
+  async function formSubmit(e) {
     e.preventDefault();
-
+    /*
     const newUser = {
       Email: input.user,
       Password: input.pass
@@ -45,8 +52,24 @@ function Login() {
             setSucessBoxVis(false);
           }, 3000)
         }
-
       })
+      */
+    try {
+      setErrorMsg("")
+      setLock(true)
+      await login(emailRef.current.value, passRef.current.value)
+      navigate('/')
+
+    }
+    catch (error) {
+      if (error.code == "auth/user-not-found") {
+        setErrorMsg("User not found, please try again.");
+      }
+      else {
+        setErrorMsg("Invalid Email/Password, please try again.");
+      }
+    }
+    setLock(false)
   }
 
   return (
@@ -54,50 +77,44 @@ function Login() {
       <div className="login-section">
         {!successBox && (
           <div className="login">
-            <div style={{ height: "5vmin" }}>
+            <div className="login-form-title">
+              <p style={{ margin: 0 }}>
+                Login
+              </p>
             </div>
             <form>
               {/*
               <label className="login-form-label">Username</label>
               */}
-              <input onChange={formInput} placeholder="Username" name='user' value={input.user} autoComplete="off" className="login-input-form" type="text" />
+              <input ref={emailRef} onChange={formInput} placeholder="Email" name='user' value={input.user} autoComplete="off" className="login-input-form" type="text" />
             </form>
             <form>
               {/*
               <label className="login-form-label">Password</label>
               */}
-              <input onChange={formInput} placeholder="Password" name='pass' value={input.pass} autoComplete="off" className="login-input-form" type="password" />
+              <input ref={passRef} onChange={formInput} placeholder="Password" name='pass' value={input.pass} autoComplete="off" className="login-input-form" type="password" />
               <a className="forget-option">
                 Forget password?
               </a>
             </form>
-            {messageBox && (
-              <div className="error-messageBox">
-                <p className="errorMessage">
-                  {message}
-                </p>
-              </div>
-            )}
+
             <button onClick={formSubmit} className="login-button">Login</button>
             <p className="login-text">
               Don't have an account?
-              {/* 
-              
-            */}
-              <Link className="sign-up-option" exact to="/sign-up">
+              <Link className="sign-up-option" exact={true} to="/sign-up">
                 Sign-up
               </Link>
             </p>
+            {errorMsg != "" && (
+              <div className="error-messageBox">
+                <p className="errorMessage">
+                  {errorMsg}
+                </p>
+              </div>
+            )}
+          </div>
+        )}
 
-          </div>
-        )}
-        {successBox && (
-          <div className="success-login-messageBox">
-            <p className="success-login-message">
-              Successfully logged-in, welcome
-            </p>
-          </div>
-        )}
       </div>
     </div>
 

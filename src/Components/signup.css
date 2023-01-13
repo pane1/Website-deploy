@@ -16,14 +16,18 @@
     display: inline;  
     margin-right: 9.69vmin;
 }
-.right-name-section{
+.right-name-section {
     margin-right: 0;
+}
+.signup-form-title {
+    text-align: center;
+    font-size: 4vmin;
 }
 .input-form {
     margin-top: 5%;
     margin-bottom: 5%;
     height: 4vmin;
-    width: 42vmin;
+    width: 42.4vmin;
     display: block;
     border: 0;
     border: 2px solid #c7cccb;
@@ -49,8 +53,8 @@
     background-color: white;
     border-radius: 16px;
     margin: auto;
-    margin-top: 5vmin;
-    margin-bottom: 8vmin;
+    margin-top: 20vh;
+
 }
 .login-text {
     text-align: center;
@@ -64,11 +68,10 @@
 }
 .register-button {
     height: 6vmin;
-    width: 30vmin;
+    width: 44.7vmin;
     text-align: center;
     margin-top: 5%;
-    margin-bottom: 5%;
-    margin-left: 15%;
+    margin-bottom: 2vmin;
     font-size: 2.5vmin;
     border: 0;
     color: #353535;
@@ -115,6 +118,7 @@
 .errorMessage {
     padding: 15px;
     color: white;
+    
 }
 .success-signUp-messageBox {
     background-color: #8edd7e;
@@ -126,7 +130,7 @@
     background-color: #fc8787;
     border-radius: 10px;
     margin-top: 3vmin;
-    margin-bottom: 2vmin;
+    margin-bottom: 4vmin;
 }
 .homeButton {
     display: inline-block;

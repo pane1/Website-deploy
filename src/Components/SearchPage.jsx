@@ -3,15 +3,19 @@ import { FiSearch } from "react-icons/fi";
 import { BsStarFill, BsStar } from "react-icons/bs";
 import axios from "axios";
 import Plot from "react-plotly.js";
-
 import "./SearchPage.css"
+
 import { isSchemaModelWithAttributes } from "@aws-amplify/datastore";
 import scatter3d from "plotly.js/lib/scatter3d";
+
+import { useAuth } from "../contexts/AuthContext"
 
 function SearchPage(props) {
     useEffect(() => {
         document.title = "Search page"
     });
+
+    //States 
     const [input, setInput] = useState({
         stock: ""
     });
@@ -30,7 +34,10 @@ function SearchPage(props) {
     });
     const [period, setPeriod] = useState([]);
     const [stockFound, setStatus] = useState(false);
+    const [loading, setWait] = useState();
+    const { currentUser } = useAuth();
 
+    //Variables
     const monthConv = ["Jan", "Feb", "Mar", "Apr", "May", "June", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
 
@@ -131,6 +138,7 @@ function SearchPage(props) {
                     var low = response.data.data.fiftyTwoWeekLow;
                     var avg = response.data.data.fiftyDayAverage;
 
+                    setWait(true);
                     setStockData({
                         price: prices,
                         name: longName,
@@ -144,6 +152,7 @@ function SearchPage(props) {
                         weekLow: low,
                         weekAvg: avg
                     });
+                    setWait(false);
                     //console.log(stockData);
                     //console.log(input);
                 }
@@ -164,12 +173,28 @@ function SearchPage(props) {
         //<BsStarFill className="stock-favoriteIcon"></BsStarFill>
     };
 
+    async function favorite() {
+        try {
+            let newUser = {
+                Uid: currentUser.uid,
+                symbol: stockData.symbol
+            }
+            //console.log(newUser);
+            await axios.post("http://localhost:3001/stock-addition", newUser).then(res => {
+                console.log(res.data)
+            })
+        }
+        catch (error) {
+            console.log("Could not be added");
+        }
+    };
+
     return (
         <div className="search-container">
             <div className="search-content">
                 <div className="search-area">
                     <input onChange={formInput} className="search-bar" name="stock" placeholder="Search for a stock" />
-                    <div className="search-button" onClick={searchStock}>
+                    <div className="search-button" disable={loading} onClick={searchStock}>
                         <FiSearch className="search-icon"></FiSearch>
                     </div>
                 </div>
@@ -180,7 +205,7 @@ function SearchPage(props) {
                                 <div className="stock-titleBarText">
                                     <p className="stock-nameText">{stockData.symbol} - {stockData.name}</p>
                                 </div>
-                                <div className="stock-titleBarIcon">
+                                <div onClick={favorite} className="stock-titleBarIcon">
                                     <BsStar className="stock-favoriteIcon"></BsStar>
 
                                 </div>
