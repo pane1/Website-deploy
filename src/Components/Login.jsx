@@ -24,6 +24,7 @@ function Login() {
 
   const [successBox, setSucessBoxVis] = useState(false);
   const [lockStatus, setLock] = useState();
+  const [cursorType, setCursor] = useState("pointer")
   const [errorMsg, setErrorMsg] = useState("");
 
   function formInput(e) {
@@ -54,9 +55,13 @@ function Login() {
         }
       })
       */
+
+    console.log("Form submitted")
+
     try {
       setErrorMsg("")
       setLock(true)
+      setCursor("wait")
       await login(emailRef.current.value, passRef.current.value)
       navigate('/')
 
@@ -70,6 +75,7 @@ function Login() {
       }
     }
     setLock(false)
+    setCursor("pointer")
   }
 
   return (
@@ -82,23 +88,40 @@ function Login() {
                 Login
               </p>
             </div>
-            <form>
-              {/*
-              <label className="login-form-label">Username</label>
-              */}
-              <input ref={emailRef} onChange={formInput} placeholder="Email" name='user' value={input.user} autoComplete="off" className="login-input-form" type="text" />
-            </form>
-            <form>
-              {/*
-              <label className="login-form-label">Password</label>
-              */}
-              <input ref={passRef} onChange={formInput} placeholder="Password" name='pass' value={input.pass} autoComplete="off" className="login-input-form" type="password" />
+            <form onSubmit={formSubmit}>
+              <input
+                ref={emailRef}
+                onChange={formInput}
+                className="login-input-form"
+                placeholder="Email"
+                name='user'
+                value={input.user}
+                autoComplete="off"
+                type="text"
+              />
+              <input
+                ref={passRef}
+                onChange={formInput}
+                className="login-input-form"
+                placeholder="Password"
+                name="pass"
+                value={input.pass}
+                autoComplete="off"
+                type="password"
+              />
               <a className="forget-option">
                 Forget password?
               </a>
-            </form>
+              <button
+                disable={lockStatus}
 
-            <button onClick={formSubmit} className="login-button">Login</button>
+                className="login-button"
+                style={{ cursor: { cursorType } }}
+                type="submit"
+              >
+                Login
+              </button>
+            </form>
             <p className="login-text">
               Don't have an account?
               <Link className="sign-up-option" exact={true} to="/sign-up">
@@ -114,10 +137,8 @@ function Login() {
             )}
           </div>
         )}
-
       </div>
     </div>
-
   );
 }
 

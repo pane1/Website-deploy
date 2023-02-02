@@ -1,6 +1,6 @@
 /*New CSS code*/
 .Nav-bar {
-  height: 8vh;
+  height: auto;
   background-color: #ff7171;
   width: 100%;
 
@@ -8,6 +8,7 @@
 .nav-bar-content {
   display: block;
   align-content: center;
+  height: auto;
 }
 .nav-logo {
   display: inline;
@@ -32,22 +33,24 @@
 .logout-menu-tab {
   display: inline-block;
   width: auto;
-  cursor: pointer;
   margin-top: 1vmin;
+  margin-right: 1vmin;
+  margin-left: 2vmin;
   color: #353535;
   font-size: 3vmin;
-  
+ 
 }
 .logout-menu-tab:hover {
   color: white;
-  border: 1px solid white;
+  border: 4px solid white;
+  cursor: default;
 }
 .logout-menu-text {
   margin: 0;
   margin-left: 1vw;
   margin-right: 1vw;
   margin-bottom: 0.5vh;
-
+  padding: 0.5vh 0.5vw;
 }
 .menu-text {
   margin: 0;
@@ -57,7 +60,7 @@
 }
 .nav-space {
   display: inline-block;
-  border: 1px sold white;
-  width: 30.2%;
-  
+  border: 1px solid white;
+  width: 85.2vmin;
+ 
 }

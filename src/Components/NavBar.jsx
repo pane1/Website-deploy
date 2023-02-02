@@ -25,10 +25,10 @@ function NavBar() {
 
     <nav className='Nav-bar'>
       <div className="Nav-bar-content">
-        <Link exact={true} to="/">
+        <Link exact="true" to="/">
           <img className="nav-logo" src={logo}></img>
         </Link>
-        <Link exact={true} to="/">
+        <Link exact="true" to="/">
           <div className="menu-tab" >
             <p className="menu-text">
               Home
@@ -45,7 +45,7 @@ function NavBar() {
         <Link to="/login">
           <div className="menu-tab" >
             <p className="menu-text">
-              Login
+              Sign-in
             </p>
           </div>
         </Link>
@@ -56,19 +56,25 @@ function NavBar() {
             </p>
           </div>
         </Link>
-        <div onClick={showUser} className="menu-tab" >
-          <p className="menu-text">
-            Current User
-          </p>
-        </div>
+        {false &&
+          <div onClick={showUser} className="menu-tab" >
+            <p className="menu-text">
+              Current User
+            </p>
+          </div>
+        }
+
         <div className="nav-space">
 
         </div>
-        <div className="logout-menu-tab" onClick={Logout}>
-          <p className="logout-menu-text">
-            Logout
-          </p>
-        </div>
+        {currentUser &&
+          <div className="logout-menu-tab" onClick={Logout}>
+            <p className="logout-menu-text">
+              Logout
+            </p>
+          </div>
+        }
+
 
 
       </div>

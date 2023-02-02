@@ -1,8 +1,8 @@
 .home-container {
-    height: 100%;
+    min-height: 91.8vh;
+    
     background-color:#353535;
     border: 1px solid #353535;
-
 }
 
 .home-content {
@@ -11,6 +11,7 @@
     background-color: white;
     margin: 5%;
     margin-bottom: 42vh;
+    
 }
 .section-title {
     display: flex;
@@ -46,7 +47,6 @@
 }
 .stocks-content-section {
     display: flex;
-    flex-wrap: wrap;
 
 }
 .stock-text{

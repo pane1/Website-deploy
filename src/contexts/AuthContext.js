@@ -16,7 +16,6 @@ export function AuthProvider({children}) {
             
             setLoading(false);
             setCurrentUser(user);
-            console.log(user)
             setLoading(true);
         });
         return unsubscribe;

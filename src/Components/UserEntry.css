@@ -1,0 +1,116 @@
+.entry-container {
+    height: 149.2vmin;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    z-index: 1;
+ 
+    margin: 0;
+}
+.entry-background {
+    display: inline;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+
+    position: absolute;
+    opacity: 0.5;
+    z-index: 2;
+    margin: 0;
+}
+.entry-content {
+    width: 80%;
+
+    height: 80vmin;
+
+    position: absolute;
+    background-color: white;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 5%;
+    z-index: 5;
+    border-radius: 4px;
+  
+}
+.stock-details-area {
+    display: flex;
+    margin-top: 6vmin;
+}
+.stock-input-area {
+    display: block;
+    width: 49.9%;
+}
+.confirm-area {
+    display: flex;    
+
+}
+.input-checkbox {
+    display: block;
+    width: 2vmin;
+    height: 2vmin;
+    margin: 2.1vmin;
+    margin-right: 1vmin;
+    margin-left: 30%;
+}
+.checkbox-input-text {
+    display: block;
+    font-size: 1.8vmin;
+    margin-right: 30%;
+}
+.stock-input-form {
+    padding: 0.5vmin 1vmin;
+    padding-right: 0;
+    font-size: 3vmin;
+    margin: 2vmin;
+    margin-left: 1%;
+    margin-right: 1%;
+    border: 2px solid #353535;
+    width: 96.5%;
+}
+.stock-input-form:focus{
+    outline: 0;
+    border:2px solid #ff5353;
+}
+.calendar-area {
+    display: flex;
+
+}
+.calendar-content-area {
+    display:block;
+    min-height: 48vmin;
+    width: 49.9%;
+    
+}
+.calendar-content {
+    display: inline;
+    border: 1px solid grey;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    margin-left: 15vmin;
+    margin-right: 15vmin;
+    margin-top: 5vmin;
+    margin-bottom: 5vmin;
+}
+.stock-submitButton-area {
+    display: flex;
+    height: 8vmin;
+}
+.stock-button-area {
+    display: block;
+    width: 100%;
+    text-align: center;
+
+}
+.stock-button {
+    height: 6vmin;
+    width: 30vmin;
+    text-align: center;
+    margin: 1vmin;
+    
+    font-size: 2vmin;
+    border: 0;
+    color: #353535;
+    background-color: #ff5353;
+    cursor: pointer;
+}

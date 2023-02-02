@@ -1,7 +1,9 @@
 .search-container {
-    height: auto;
+    height: 100%;
+    
     background-color: #353535;
     border: 1px solid #353535;
+    
 }
 .search-content{
     display: block;
@@ -9,10 +11,14 @@
     height: auto;
     min-height: 80vh;
     margin: 6vmin;
+    margin-bottom: 5.8vmin;
     flex-wrap: wrap;
 }
 .search-area {
     width: auto;
+}
+.search-bar-form{
+    display: inline;
 }
 .search-bar {
     display: inline;
@@ -35,6 +41,7 @@
     width: 7vmin;
     vertical-align: bottom;
 }
+
 .search-icon {
     height: 7vmin;
     width: 7vmin;
@@ -43,6 +50,7 @@
 }
 .search-icon:hover {
     color: white;
+    cursor: pointer;
 }
 .search-result-area {
     width: auto;
@@ -106,14 +114,27 @@
     border-radius: 4px;
     
 }
-
+.stock-details-section {
+    border-top: 1px solid #dddddd;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    height: 8vmin;
+    
+}
+.stock-details {
+    font-size: 3vmin;
+    text-align: center;
+    padding: 2vmin;
+    margin: 0;
+    margin-bottom: 20vh;
+}
 .stock-details {
     /*
     border: 1px solid black;
     */
     
     height: 40vh;
-    margin-bottom: 5vh;
+    
 }
 .stock-table {
     border: 1px solid red;

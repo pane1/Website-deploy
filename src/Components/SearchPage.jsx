@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { FiSearch } from "react-icons/fi";
+
 import { BsStarFill, BsStar } from "react-icons/bs";
 import axios from "axios";
 import Plot from "react-plotly.js";
@@ -9,6 +10,9 @@ import { isSchemaModelWithAttributes } from "@aws-amplify/datastore";
 import scatter3d from "plotly.js/lib/scatter3d";
 
 import { useAuth } from "../contexts/AuthContext"
+import UserEntry from "./UserEntry";
+import { useNavigate } from "react-router-dom"
+
 
 function SearchPage(props) {
     useEffect(() => {
@@ -32,9 +36,13 @@ function SearchPage(props) {
         weekLow: 0,
         weekAvg: 0
     });
+
     const [period, setPeriod] = useState([]);
     const [stockFound, setStatus] = useState(false);
-    const [loading, setWait] = useState();
+    const [loading, setWait] = useState(false);
+    const [visible, setVisible] = useState(false);
+
+    const navigate = useNavigate();
     const { currentUser } = useAuth();
 
     //Variables
@@ -74,9 +82,10 @@ function SearchPage(props) {
     //const [input, setInput] = useState("")
 
     function formInput(e) {
+        //e.preventDefault();
         const { name, value } = e.target;
         setInput(() => ({ ...input, [name]: value.toUpperCase() }));
-
+        console.log(input.stock);
         if (value == "") {
             setPeriod([]);
             setStockData({ symbol: "" });
@@ -87,10 +96,13 @@ function SearchPage(props) {
     };
 
     async function searchStock(e) {
+        e.preventDefault();
         try {
             var prices = [];
             var dates = [];
-
+            //console.log(optionsInfo)
+            //console.log(optionsPrice)
+            setWait(true);
             await axios.request(optionsPrice).then(function (response) {
 
                 if (typeof response.data.data[0] !== "undefined") {
@@ -138,7 +150,7 @@ function SearchPage(props) {
                     var low = response.data.data.fiftyTwoWeekLow;
                     var avg = response.data.data.fiftyDayAverage;
 
-                    setWait(true);
+
                     setStockData({
                         price: prices,
                         name: longName,
@@ -152,62 +164,111 @@ function SearchPage(props) {
                         weekLow: low,
                         weekAvg: avg
                     });
-                    setWait(false);
+
                     //console.log(stockData);
                     //console.log(input);
                 }
                 else {
                     setStatus(false);
-                    alert("stock info not found");
+                    console.log("Stock cannot be displayed.")
+                    alert("Stock cannot be displayed.");
 
                 }
 
             }).catch(function (error) {
                 console.error(error);
+                console.log("Stock info cannot be found.");
+                alert("Stock info cannot be found.");
             })
 
         }
         catch (error) {
-            console.log("Stock cannot be found.")
+            console.log("Search could not be done.")
+            alert("Search could not be done.")
         }
-        //<BsStarFill className="stock-favoriteIcon"></BsStarFill>
+        setWait(false);
+
     };
 
-    async function favorite() {
+    function closeWindow() {
+        setVisible(false);
+    };
+    function openWindow() {
+        setVisible(true);
+    }
+
+    async function favorite(userData) {
+
         try {
             let newUser = {
                 Uid: currentUser.uid,
-                symbol: stockData.symbol
-            }
-            //console.log(newUser);
-            await axios.post("http://localhost:3001/stock-addition", newUser).then(res => {
-                console.log(res.data)
-            })
+                Symbol: stockData.symbol,
+                buyPrice: userData.buyPrice,
+                sellPrice: userData.sellPrice,
+                buyDate: userData.buyDate == "N/A" ? "N/A" : userData.buyDate,
+                sellDate: userData.sellDate == "N/A" ? "N/A" : userData.sellDate,
+            };
+            console.log(newUser);
+            setWait(true);
+            await axios.post("http://localhost:3001/stock-addition", newUser)
+                .then(res => {
+                    if (res.data == "stock already in collection") {
+                        alert("stock already in collection");
+                    }
+                    else {
+                        console.log(res.data)
+                        setVisible(false);
+                        navigate("/");
+                    }
+                });
+
         }
         catch (error) {
-            console.log("Could not be added");
+            console.log(error);
         }
+        setWait(false);
     };
 
+    function getUsersValues(userData) {
+        console.log(userData)
+        /*
+        setUserData({
+            Uid: currentUser.uid,
+            symbol: stockData.symbol,
+            buyPrice: userData.buyPrice,
+            sellPrice: userData.sellPrice,
+            buyDate: userData.buyDate,
+            sellDate: userData.sellDate
+        })
+        */
+        favorite(userData)
+    }
     return (
-        <div className="search-container">
+        <div className="search-container" style={{ cursor: loading ? "wait" : "auto" }}>
             <div className="search-content">
                 <div className="search-area">
-                    <input onChange={formInput} className="search-bar" name="stock" placeholder="Search for a stock" />
-                    <div className="search-button" disable={loading} onClick={searchStock}>
-                        <FiSearch className="search-icon"></FiSearch>
+                    <form onSubmit={searchStock} className="search-bar-form">
+                        <input
+                            //ref={inputRef}
+                            onChange={formInput}
+                            className="search-bar"
+                            name="stock"
+                            placeholder="Search for a stock"
+                        />
+                    </form>
+                    <div className="search-button" disable={loading.toString()} onClick={searchStock}>
+                        <FiSearch className="search-icon" style={{ cursor: loading ? "wait" : "pointer" }}></FiSearch>
                     </div>
                 </div>
                 <div className="search-result-area">
                     {stockFound != "" &&
-                        <div class="stock-graphContent">
+                        <div className="stock-graphContent">
                             <div className="stock-titleBarArea">
                                 <div className="stock-titleBarText">
                                     <p className="stock-nameText">{stockData.symbol} - {stockData.name}</p>
                                 </div>
-                                <div onClick={favorite} className="stock-titleBarIcon">
+                                <div onClick={openWindow} className="stock-titleBarIcon">
                                     <BsStar className="stock-favoriteIcon"></BsStar>
-
                                 </div>
                             </div>
                             <Plot className="stock-graph"
@@ -304,7 +365,9 @@ function SearchPage(props) {
                         </div>
                     }
                 </div>
+
             </div>
+            {visible && <UserEntry getUsersValues={getUsersValues} closeWindow={closeWindow} />}
         </div >
     );
 }

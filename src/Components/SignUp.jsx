@@ -30,6 +30,7 @@ function SignUp() {
 
     const [successBox, setSucessBoxVis] = useState(false)
     const [lockStatus, setLock] = useState(false);
+    const [cursorType, setCursor] = useState("pointer")
     const [errorMsg, setErrorMsg] = useState("");
     let newUser;
 
@@ -54,7 +55,7 @@ function SignUp() {
             alert("created")
             setErrorMsg("");
             setLock(true)
-
+            setCursor("wait")
             await signup(emailRef.current.value, passRef.current.value)
             let newUser = {
                 Uid: currentUser.uid
@@ -62,9 +63,8 @@ function SignUp() {
             await axios.post("http://localhost:3001/sign-up", newUser).then(res => {
                 console.log(res.data)
             })
-
-
             setLock(false)
+            setCursor("pointer")
             navigate('/')
         }
         catch (error) {
@@ -175,7 +175,7 @@ function SignUp() {
                             </form>
                             <button disable={lockStatus} onClick={formSubmit} className="register-button">Sign-up</button>
                             {errorMsg != "" && (
-                                <div className="error-messageBox">
+                                <div className="error-messageBox" style={{ cursor: { cursorType } }}>
                                     <p className="description errorMessage">
                                         {errorMsg}
                                     </p>
