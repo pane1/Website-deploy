@@ -26,6 +26,7 @@ function App() {
     </Router>
   */
   return (
+    
     <Router>
       <AuthProvider>
         <Navbar/>
@@ -35,8 +36,10 @@ function App() {
           <Route path="/login" element={<Login/>} />
           <Route path="/sign-up" element={<SignUp/>} />
         </Routes>
-        </AuthProvider>
+      </AuthProvider>
     </Router>
+
+    
   );
 }
 
