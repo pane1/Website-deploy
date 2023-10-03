@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/Website-stock-tracker/static/css/main.a26968df.css",
+    "main.js": "/Website-stock-tracker/static/js/main.e45e82a9.js",
+    "static/media/logo.png": "/Website-stock-tracker/static/media/logo.8bd998e725ca9a210f8e.png",
+    "index.html": "/Website-stock-tracker/index.html",
+    "main.a26968df.css.map": "/Website-stock-tracker/static/css/main.a26968df.css.map",
+    "main.e45e82a9.js.map": "/Website-stock-tracker/static/js/main.e45e82a9.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a26968df.css",
+    "static/js/main.e45e82a9.js"
+  ]
+}
